@@ -1,0 +1,43 @@
+﻿<Window x:Class="remont.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:remont"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="66*"/>
+            <RowDefinition Height="151*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="1">
+            <DataGrid x:Name="dgApplication" AutoGenerateColumns="False" IsReadOnly="True" SelectionChanged="dgApplication_SelectionChanged">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Номер заявки" Binding="{Binding ID_Applications}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Дата добавления" Binding="{Binding DateAdd}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Оборудование" Binding="{Binding Device}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Неисправность" Binding="{Binding Problem}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Описание проблемы" Binding="{Binding Descriotion}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Клиент" Binding="{Binding User.Login}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Статус" Binding="{Binding Status.NameStatus}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Исполнитель" Binding="{Binding Executor.NameExecutor}"></DataGridTextColumn>
+                </DataGrid.Columns>
+
+            </DataGrid>
+        </Grid>
+        <TextBox x:Name="Search" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="166"  Height="23" Margin="342,10,0,0" TextChanged="Search_TextChanged"/>
+        <ComboBox x:Name="Status" HorizontalAlignment="Left" Margin="342,45,0,0" VerticalAlignment="Top" Width="137" Height="38"/>
+        <Label Content="Поиск:" HorizontalAlignment="Left" Height="38" Margin="261,3,0,0" VerticalAlignment="Top" Width="56"/>
+        <Label Content="Статус:" HorizontalAlignment="Left" Height="38" Margin="255,46,0,0" VerticalAlignment="Top" Width="56"/>
+        <Label Content="Исполнитель:" HorizontalAlignment="Left" Height="38" Margin="250,91,0,0" VerticalAlignment="Top" Width="92"/>
+        <TextBox x:Name="Opisanie" HorizontalAlignment="Left" Height="94" Margin="80,0,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="165"/>
+        <Label Content="Описание&#xD;&#xA;проблемы:" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Center" HorizontalContentAlignment="Center" Height="42" Width="70"/>
+        <ComboBox x:Name="Executor" HorizontalAlignment="Left" Margin="342,89,0,0" VerticalAlignment="Top" Width="137" Height="38"/>
+        <Button Content="Обновить" HorizontalAlignment="Right" Margin="671,10,20,0" VerticalAlignment="Top" Height="41" Width="67" Click="Update_Click"/>
+        <Button Content="Удалить" HorizontalAlignment="Right" Margin="671,65,20,0" VerticalAlignment="Top" Height="41" Width="67"  Click="Delete_Click"/>
+        <TextBox x:Name="Kolvo" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="110"  Height="32" Margin="561,70,0,0" TextChanged="Search_TextChanged"/>
+
+
+    </Grid>
+</Window>
